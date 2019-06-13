@@ -1,5 +1,6 @@
 #include <jni.h>
 #include <string>
+#include <random>
 #include "../jni/com_wjx_android_ndksummary_MainActivity.h"
 
 extern "C" JNIEXPORT jstring JNICALL
@@ -29,4 +30,24 @@ extern "C" JNIEXPORT jint Java_com_wjx_android_ndksummary_MainActivity_myAddFrom
     // 调用它，拿到结果
     jint res = (env)->CallIntMethod(jobject1, methodId, num1, num2);
     return res;
+}
+
+
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_wjx_android_ndksummary_MainActivity_myAddStringFrom(JNIEnv *env, jobject instance) {
+
+    // TODO
+    jclass clazz = (env)->GetObjectClass(instance);
+    jfieldID s_a_id= (env)->GetFieldID(clazz, "a", "[Ljava/lang/String");
+    jobject s_a = (env)->GetObjectField(instance, s_a_id);
+    jfieldID s_b_id= (env)->GetFieldID(clazz, "b", "[Ljava/lang/String");
+    jobject s_b = (env)->GetObjectField(instance, s_b_id);
+    jfieldID s_c_id= (env)->GetFieldID(clazz, "c", "[Ljava/lang/String");
+    jobject s_c = (env)->GetObjectField(instance, s_c_id);
+    jmethodID jmethodID1 = (env)->GetMethodID(clazz, "addStr",
+                                              "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
+
+    jstring result = static_cast<jstring>((env)->CallObjectMethod(instance, jmethodID1, s_a, s_b, s_c));
+    return result;
 }

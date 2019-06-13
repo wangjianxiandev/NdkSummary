@@ -31,6 +31,14 @@ JNIEXPORT jstring JNICALL Java_com_wjx_android_ndksummary_MainActivity_myStringF
 JNIEXPORT jint JNICALL Java_com_wjx_android_ndksummary_MainActivity_myAddFromJNI
   (JNIEnv *, jobject);
 
+/*
+ * Class:     com_wjx_android_ndksummary_MainActivity
+ * Method:    myAddStringFrom
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_com_wjx_android_ndksummary_MainActivity_myAddStringFrom
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif

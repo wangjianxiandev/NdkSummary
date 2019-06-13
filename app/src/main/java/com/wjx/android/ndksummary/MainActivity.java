@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Example of a call to a native method
         TextView tv = findViewById(R.id.sample_text);
-        tv.setText(String.valueOf(myAddFromJNI()));
+        tv.setText(myAddStringFrom());
     }
 
     /**
@@ -39,4 +39,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public native int myAddFromJNI();
+
+
+    String a = "w";
+    String b = "j";
+    String c = "x";
+    public String addStr(String a, String b, String c){
+        return a + b + c;
+    }
+
+    public native String myAddStringFrom();
 }
